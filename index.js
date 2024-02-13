@@ -3,7 +3,7 @@ const socket = require("socket.io");
 
 const app = express();
 const server = app.listen(process.env.PORT || 3000, function () {
-  console.log("Listening to requests on port 4000");
+  console.log("Listening to requests on port "+ process.env.PORT);
 });
 
 // Archivos estaticos
