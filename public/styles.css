@@ -21,7 +21,7 @@ h2 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 15rem;
+    top: 14rem;
 }
 
 #contenedor p {
@@ -36,10 +36,10 @@ h2 {
 
 @keyframes animate_text {
   from {
-    transform: translateX(-150vw);
+    transform: translateX(-100vw);
   }
   to {
-    transform: translateX(100%);
+    transform: translateX(100vw);
   }
 }
 
@@ -47,7 +47,7 @@ h2 {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  animation: animate_text 15s linear infinite;
+  animation: animate_text 10s linear infinite;
   white-space: nowrap;
 }
 
@@ -72,7 +72,6 @@ input {
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #eee;
-  /* font-family: Hel; */
   font-size: 16px;
 }
 
