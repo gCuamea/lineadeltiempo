@@ -5,22 +5,24 @@ const message = document.getElementById('message')
 const handle = document.getElementById('handle')
 const btn = document.getElementById('send')
 const output = document.getElementById('output')
-const feedback = document.getElementById('feedback')
 
 btn.addEventListener('click', function() {
     socket.emit('chat', {
-        message: message.value,
-        handle: handle.value
+        mensaje: message.value,
+        usuario: handle.value,
+        fecha: new Date().toLocaleString()
     })
 })
 
-message.addEventListener('keypress', function() {
-    socket.emit('typing', handle.value)
+socket.on("clientLoad", (data) => {
+    console.log('data', data);
+    data.forEach((data) => {
+        output.innerHTML += `<p><strong>${data.fecha} ${data.usuario}: </strong>${data.mensaje}</p>`
+    })
 })
 
 socket.on('chat', function(data) {
-    feedback.innerHTML = ''
-    output.innerHTML += `<p><strong> ${data.handle}: </strong>${data.message}</p>`
+    output.innerHTML += `<p>${data.fecha}<strong> ${data.usuario}: </strong>${data.mensaje}</p>`
 })
 
 socket.on('typing', function(data) {
